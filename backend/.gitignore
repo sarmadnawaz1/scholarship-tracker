@@ -1,0 +1,8 @@
+# Prisma generated client
+/generated/prisma
+
+# Prisma / AI tooling
+.agents/
+.claude/
+.windsurf/
+skills-lock.json

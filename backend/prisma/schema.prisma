@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum ApplicationStatus {
+  PLANNING
+  IN_PROGRESS
+  SUBMITTED
+  UNDER_REVIEW
+  ACCEPTED
+  REJECTED
+}
+
+model Application {
+  id              Int               @id @default(autoincrement())
+  scholarshipName String
+  university      String
+  country         String
+  degree          String
+  deadline        DateTime
+  status          ApplicationStatus @default(PLANNING)
+  notes           String?
+  websiteUrl      String?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+}
